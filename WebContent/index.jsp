@@ -20,10 +20,10 @@
 	<%
 		try {
 
-			Class.forName("oracle.jdbc.driver.OracleDriver"); //oracle.jdbc.driver.OracleDriver
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "user_id", "user_pw"); //jdbc:oracle:thin:@localhost:1521:xe
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "user_id", "user_pw");
 			stm = conn.createStatement();
-			ret = stm.executeQuery(query); //select * from member
+			ret = stm.executeQuery(query);
 
 			while (ret.next()) {
 				String id = ret.getString("id");
@@ -35,9 +35,7 @@
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
-			out.println(e.getMessage());
-
+			;
 		} finally {
 			try {
 				if (ret != null)
@@ -47,6 +45,7 @@
 				if (conn != null)
 					conn.close();
 			} catch (Exception e) {
+				;
 			}
 		}
 	%>
